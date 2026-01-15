@@ -199,6 +199,14 @@ header h1 {
     image-rendering: crisp-edges;
 }
 
+.pokemon-name {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
 .stats-table {
     width: 100%;
     border-collapse: collapse;
