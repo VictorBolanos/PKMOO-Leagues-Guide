@@ -170,12 +170,72 @@ header h1 {
 }
 
 .pokemon-image {
-    width: 80px;
-    height: 80px;
+    width: 165px;
+    height: 165px;
     object-fit: contain;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.stats-table thead {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.stats-table th {
+    padding: 6px 8px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.stats-table th:first-child {
+    text-align: left;
+}
+
+.stats-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.stats-table td {
+    padding: 6px 8px;
+}
+
+.stats-table td:first-child {
+    font-weight: 600;
+    min-width: 50px;
+    text-align: left;
+}
+
+.stats-table td:nth-child(2),
+.stats-table td:nth-child(3) {
+    text-align: center;
+    min-width: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 3px;
+}
+
+.stats-table td.iv-zero,
+.stats-table td.ev-zero {
+    color: #ff4444;
+}
+
+.stats-table td.iv-max,
+.stats-table td.ev-max {
+    color: #44ff44;
 }
 
 .info-card {
@@ -316,14 +376,14 @@ header h1 {
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     cursor: pointer;
-    width: 80px;
-    height: 80px;
+    width: 110px;
+    height: 110px;
     flex-shrink: 0;
 }
 
@@ -356,7 +416,7 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.2);
     pointer-events: none;
 }
 
@@ -372,33 +432,39 @@ header h1 {
 
 .leader-pokemon-name {
     position: absolute;
-    top: 50%;
+    bottom: 5px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.7rem;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
     z-index: 2;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     pointer-events: none;
+    padding: 2px 4px;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 95%;
+    text-align: center;
+    line-height: 1.2;
 }
 
 @media (max-width: 768px) {
     .leader-pokemon-card {
-        width: 70px;
-        height: 70px;
+        width: 95px;
+        height: 95px;
     }
 }
 
 @media (max-width: 480px) {
     .leader-pokemon-card {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
     
     .leader-pokemon-name {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
     }
 }
 
