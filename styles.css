@@ -10,6 +10,7 @@ body {
     color: #ffffff;
     min-height: 100vh;
     padding: 20px;
+    overflow-x: hidden;
 }
 
 .container {
@@ -518,24 +519,6 @@ header h1 {
     line-height: 1.2;
 }
 
-@media (max-width: 768px) {
-    .leader-pokemon-card {
-        width: 104.74px;
-        height: 104.74px;
-    }
-}
-
-@media (max-width: 480px) {
-    .leader-pokemon-card {
-        width: 88.2px;
-        height: 88.2px;
-    }
-    
-    .leader-pokemon-name {
-        font-size: 0.65rem;
-    }
-}
-
 .footer-card {
     text-align: center;
     padding: 20px;
@@ -683,31 +666,694 @@ header h1 {
     image-rendering: crisp-edges;
 }
 
-@media (max-width: 1200px) {
+/* Responsive: pantallas menores a 925px */
+@media (max-width: 925px) {
+    /* Reducir separación entre botones */
     .regions-container,
     .trainers-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .regions-container,
-    .trainers-container {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
     
-    .header-card h1 {
-        font-size: 1.8rem;
+    /* Regiones - 20% más pequeñas */
+    .region-btn {
+        padding: 22.048px 17.64px;
+        font-size: 0.9704rem;
+    }
+    
+    /* Entrenadores - 20% más pequeños */
+    .trainer-card {
+        padding: 16px;
+    }
+    
+    .trainer-image-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .trainer-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .trainer-name {
+        font-size: 0.76rem;
+    }
+    
+    /* Pokémons líderes - 20% más pequeños */
+    .leader-pokemon-card {
+        width: 97.024px;
+        height: 97.024px;
+        padding: 8.824px;
+    }
+    
+    .leader-pokemon-name {
+        font-size: 0.6rem;
+    }
+    
+    /* Título y logo - 20% más pequeños */
+    header h1 {
+        font-size: 2rem;
     }
     
     .header-logo {
-        max-width: 200px;
+        max-width: 240px;
+    }
+    
+    /* Botones Equipo e Inicio - 20% más pequeños */
+    .team-toggle,
+    .battle-start-toggle {
+        font-size: 0.7936rem;
+        padding: 10.584px 21.168px;
+        min-width: 176.4px;
+    }
+    
+    .battle-start-toggle {
+        min-width: 264.6px;
+    }
+    
+    /* Equipo - 20% más pequeño */
+    .team-table th {
+        padding: 12px;
+        font-size: 0.72rem;
+    }
+    
+    .team-table td {
+        padding: 12px;
+    }
+    
+    .pokemon-image {
+        width: 138.4px;
+        height: 138.4px;
+    }
+    
+    .item-icon {
+        width: 38.4px;
+        height: 38.4px;
+    }
+    
+    .pokemon-name {
+        font-size: 0.8rem;
+        margin-top: 6.4px;
+    }
+    
+    .stats-table {
+        font-size: 0.68rem;
+    }
+    
+    .stats-table th {
+        padding: 4.8px 6.4px;
+        font-size: 0.6rem;
+    }
+    
+    .stats-table td {
+        padding: 4.8px 6.4px;
+    }
+    
+    .moveset-item {
+        padding: 3.2px 6.4px;
+        font-size: 0.924rem;
+        gap: 4.8px;
+    }
+    
+    .type-icon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .ability-item-info {
+        font-size: 1.04rem;
+        gap: 6.4px;
     }
 }
 
-@media (max-width: 480px) {
+/* Responsive: pantallas menores a 800px */
+@media (max-width: 800px) {
+    /* Reducir separación entre botones */
     .regions-container,
     .trainers-container {
-        grid-template-columns: 1fr;
+        gap: 12.8px;
+    }
+    
+    /* Regiones - otro 20% más pequeñas */
+    .region-btn {
+        padding: 17.6384px 14.112px;
+        font-size: 0.77632rem;
+    }
+    
+    /* Entrenadores - otro 20% más pequeños */
+    .trainer-card {
+        padding: 12.8px;
+    }
+    
+    .trainer-image-wrapper {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .trainer-image {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .trainer-name {
+        font-size: 0.608rem;
+    }
+    
+    /* Pokémons líderes - otro 20% más pequeños */
+    .leader-pokemon-card {
+        width: 77.6192px;
+        height: 77.6192px;
+        padding: 7.0592px;
+    }
+    
+    .leader-pokemon-name {
+        font-size: 0.48rem;
+    }
+    
+    /* Título y logo - otro 20% más pequeños */
+    header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .header-logo {
+        max-width: 192px;
+    }
+    
+    /* Botones Equipo e Inicio - otro 20% más pequeños */
+    .team-toggle,
+    .battle-start-toggle {
+        font-size: 0.63488rem;
+        padding: 8.4672px 16.9344px;
+        min-width: 141.12px;
+    }
+    
+    .battle-start-toggle {
+        min-width: 211.68px;
+    }
+    
+    /* Equipo - otro 20% más pequeño */
+    .team-table th {
+        padding: 9.6px;
+        font-size: 0.576rem;
+    }
+    
+    .team-table td {
+        padding: 9.6px;
+    }
+    
+    .pokemon-image {
+        width: 110.72px;
+        height: 110.72px;
+    }
+    
+    .item-icon {
+        width: 30.72px;
+        height: 30.72px;
+    }
+    
+    .pokemon-name {
+        font-size: 0.64rem;
+        margin-top: 5.12px;
+    }
+    
+    .stats-table {
+        font-size: 0.544rem;
+    }
+    
+    .stats-table th {
+        padding: 3.84px 5.12px;
+        font-size: 0.48rem;
+    }
+    
+    .stats-table td {
+        padding: 3.84px 5.12px;
+    }
+    
+    .moveset-item {
+        padding: 2.56px 5.12px;
+        font-size: 0.7392rem;
+        gap: 3.84px;
+    }
+    
+    .type-icon {
+        width: 12.8px;
+        height: 12.8px;
+    }
+    
+    .ability-item-info {
+        font-size: 0.832rem;
+        gap: 5.12px;
+    }
+}
+
+/* Responsive: pantallas menores a 650px */
+@media (max-width: 650px) {
+    /* Reducir separación entre botones */
+    .regions-container,
+    .trainers-container {
+        gap: 10.88px;
+    }
+    
+    /* Regiones, entrenadores y pokémons líderes - otro 15% más pequeños */
+    .region-btn {
+        padding: 14.99264px 11.9952px;
+        font-size: 0.659872rem;
+    }
+    
+    .trainer-card {
+        padding: 10.88px;
+    }
+    
+    .trainer-image-wrapper {
+        width: 54.4px;
+        height: 54.4px;
+    }
+    
+    .trainer-image {
+        width: 54.4px;
+        height: 54.4px;
+    }
+    
+    .trainer-name {
+        font-size: 0.5168rem;
+    }
+    
+    .leader-pokemon-card {
+        width: 65.97632px;
+        height: 65.97632px;
+        padding: 6.00032px;
+    }
+    
+    .leader-pokemon-name {
+        font-size: 0.408rem;
+    }
+    
+    /* Título y logo - otro 15% más pequeños */
+    header h1 {
+        font-size: 1.36rem;
+    }
+    
+    .header-logo {
+        max-width: 163.2px;
+    }
+    
+    /* Botones Equipo e Inicio - otro 15% más pequeños */
+    .team-toggle,
+    .battle-start-toggle {
+        font-size: 0.539648rem;
+        padding: 7.19712px 14.39424px;
+        min-width: 119.952px;
+    }
+    
+    .battle-start-toggle {
+        min-width: 179.928px;
+    }
+    
+    /* Equipo - columna Naturaleza, Habilidad e Item a segunda fila */
+    .team-table {
+        display: block;
+    }
+    
+    .team-table thead {
+        display: none;
+    }
+    
+    .team-table tbody {
+        display: block;
+    }
+    
+    .team-table tbody tr {
+        display: grid;
+        grid-template-columns: auto 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 12px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .team-table tbody tr:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    .team-table td {
+        padding: 9.6px;
+        border: none;
+    }
+    
+    /* Primera fila: Imagen (col1), IVs/EVs (col2), Moveset (col3) */
+    .team-table td:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .team-table td:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+        display: block;
+    }
+    
+    .team-table td:nth-child(2) .stats-table {
+        display: table !important;
+        width: 100% !important;
+    }
+    
+    .team-table td:nth-child(2) .stats-table thead {
+        display: table-header-group !important;
+    }
+    
+    .team-table td:nth-child(2) .stats-table tbody {
+        display: table-row-group !important;
+    }
+    
+    .team-table td:nth-child(2) .stats-table tr {
+        display: table-row !important;
+    }
+    
+    .team-table td:nth-child(2) .stats-table th,
+    .team-table td:nth-child(2) .stats-table td {
+        display: table-cell !important;
+    }
+    
+    .team-table td:nth-child(3) {
+        grid-column: 3;
+        grid-row: 1;
+        display: block;
+    }
+    
+    /* Segunda fila: Naturaleza, Habilidad e Item (col4) ocupa toda la fila */
+    .team-table td:nth-child(4) {
+        grid-column: 1 / 4;
+        grid-row: 2;
+        display: block;
+    }
+    
+    .team-table th:nth-child(4) {
+        display: none;
+    }
+}
+
+/* Responsive: pantallas menores a 580px */
+@media (max-width: 580px) {
+    /* Reducir separación entre botones */
+    .regions-container,
+    .trainers-container {
+        gap: 9.248px;
+    }
+    
+    /* Regiones, entrenadores y pokémons líderes - otro 15% más pequeños */
+    .region-btn {
+        padding: 12.743744px 10.19592px;
+        font-size: 0.5608912rem;
+    }
+    
+    .trainer-card {
+        padding: 9.248px;
+    }
+    
+    .trainer-image-wrapper {
+        width: 46.24px;
+        height: 46.24px;
+    }
+    
+    .trainer-image {
+        width: 46.24px;
+        height: 46.24px;
+    }
+    
+    .trainer-name {
+        font-size: 0.43928rem;
+    }
+    
+    .leader-pokemon-card {
+        width: 56.079872px;
+        height: 56.079872px;
+        padding: 5.100272px;
+    }
+    
+    .leader-pokemon-name {
+        font-size: 0.3468rem;
+    }
+    
+    /* Título y logo - otro 15% más pequeños */
+    header h1 {
+        font-size: 1.156rem;
+    }
+    
+    .header-logo {
+        max-width: 138.72px;
+    }
+    
+    /* Botones Equipo e Inicio - otro 15% más pequeños */
+    .team-toggle,
+    .battle-start-toggle {
+        font-size: 0.4587008rem;
+        padding: 6.117552px 12.235104px;
+        min-width: 101.9592px;
+    }
+    
+    .battle-start-toggle {
+        min-width: 152.9388px;
+    }
+    
+    /* Equipo - otro 15% más pequeño */
+    .team-table th {
+        padding: 8.16px;
+        font-size: 0.4896rem;
+    }
+    
+    .team-table td {
+        padding: 8.16px;
+    }
+    
+    .team-table tbody tr {
+        gap: 10.2px;
+        padding: 10.2px;
+    }
+    
+    .pokemon-image {
+        width: 94.112px;
+        height: 94.112px;
+    }
+    
+    .item-icon {
+        width: 26.112px;
+        height: 26.112px;
+    }
+    
+    .pokemon-name {
+        font-size: 0.544rem;
+        margin-top: 4.352px;
+    }
+    
+    .stats-table {
+        font-size: 0.4624rem;
+    }
+    
+    .stats-table th {
+        padding: 3.264px 4.352px;
+        font-size: 0.408rem;
+    }
+    
+    .stats-table td {
+        padding: 3.264px 4.352px;
+    }
+    
+    .moveset-item {
+        padding: 2.176px 4.352px;
+        font-size: 0.62832rem;
+        gap: 3.264px;
+    }
+    
+    .type-icon {
+        width: 10.88px;
+        height: 10.88px;
+    }
+    
+    .ability-item-info {
+        font-size: 0.7072rem;
+        gap: 4.352px;
+    }
+}
+
+/* Responsive: pantallas menores a 525px */
+@media (max-width: 525px) {
+    /* Reducir separación entre botones */
+    .regions-container,
+    .trainers-container {
+        gap: 7.8608px;
+    }
+    
+    /* Regiones, entrenadores y pokémons líderes - otro 15% más pequeños */
+    .region-btn {
+        padding: 10.8321824px 8.666532px;
+        font-size: 0.47675752rem;
+    }
+    
+    .trainer-card {
+        padding: 7.8608px;
+    }
+    
+    .trainer-image-wrapper {
+        width: 39.304px;
+        height: 39.304px;
+    }
+    
+    .trainer-image {
+        width: 39.304px;
+        height: 39.304px;
+    }
+    
+    .trainer-name {
+        font-size: 0.373388rem;
+    }
+    
+    .leader-pokemon-card {
+        width: 47.6678912px;
+        height: 47.6678912px;
+        padding: 4.3352312px;
+    }
+    
+    .leader-pokemon-name {
+        font-size: 0.29478rem;
+    }
+    
+    /* Título y logo - otro 15% más pequeños */
+    header h1 {
+        font-size: 0.9826rem;
+    }
+    
+    .header-logo {
+        max-width: 117.912px;
+    }
+    
+    /* Botones Equipo e Inicio - otro 15% más pequeños */
+    .team-toggle,
+    .battle-start-toggle {
+        font-size: 0.38989568rem;
+        padding: 5.1999192px 10.3998384px;
+        min-width: 86.66532px;
+    }
+    
+    .battle-start-toggle {
+        min-width: 129.99798px;
+    }
+    
+    /* Equipo - moveset también a segunda fila */
+    .team-table tbody tr {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 8.67px;
+        padding: 8.67px;
+    }
+    
+    /* Primera fila: Imagen (col1), IVs/EVs (col2) */
+    .team-table td:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .team-table td:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+        display: block;
+    }
+    
+    .team-table td:nth-child(2) .stats-table {
+        display: table !important;
+        width: 100% !important;
+    }
+    
+    .team-table td:nth-child(2) .stats-table thead {
+        display: table-header-group !important;
+    }
+    
+    .team-table td:nth-child(2) .stats-table tbody {
+        display: table-row-group !important;
+    }
+    
+    .team-table td:nth-child(2) .stats-table tr {
+        display: table-row !important;
+    }
+    
+    .team-table td:nth-child(2) .stats-table th,
+    .team-table td:nth-child(2) .stats-table td {
+        display: table-cell !important;
+    }
+    
+    /* Segunda fila: Moveset (col3) y Naturaleza, Habilidad e Item (col4) */
+    .team-table td:nth-child(3) {
+        grid-column: 1;
+        grid-row: 2;
+        display: block;
+    }
+    
+    .team-table td:nth-child(4) {
+        grid-column: 2;
+        grid-row: 2;
+        display: block;
+    }
+    
+    /* Equipo - otro 15% más pequeño */
+    .team-table th {
+        padding: 6.936px;
+        font-size: 0.41616rem;
+    }
+    
+    .team-table td {
+        padding: 6.936px;
+    }
+    
+    .pokemon-image {
+        width: 79.9952px;
+        height: 79.9952px;
+    }
+    
+    .item-icon {
+        width: 22.1952px;
+        height: 22.1952px;
+    }
+    
+    .pokemon-name {
+        font-size: 0.4624rem;
+        margin-top: 3.6992px;
+    }
+    
+    .stats-table {
+        font-size: 0.39304rem;
+    }
+    
+    .stats-table th {
+        padding: 2.7744px 3.6992px;
+        font-size: 0.3468rem;
+    }
+    
+    .stats-table td {
+        padding: 2.7744px 3.6992px;
+    }
+    
+    .moveset-item {
+        padding: 1.8496px 3.6992px;
+        font-size: 0.534072rem;
+        gap: 2.7744px;
+    }
+    
+    .type-icon {
+        width: 9.248px;
+        height: 9.248px;
+    }
+    
+    .ability-item-info {
+        font-size: 0.60112rem;
+        gap: 3.6992px;
     }
 }
