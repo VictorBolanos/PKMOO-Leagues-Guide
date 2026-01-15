@@ -1,1 +1,155 @@
-<h1>HOLA</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Ligas PKMOO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sección 1: Cabecera -->
+        <section class="card-section">
+            <header class="header-card">
+                <img src="img/logos/TitleLogo.png" alt="Logo PKMOO" class="header-logo">
+                <h1>GUÍA DE LIGAS PKMOO</h1>
+                
+                <!-- Desplegable Equipo -->
+                <div class="team-dropdown">
+                    <button class="team-toggle" id="teamToggle">
+                        <span>Equipo</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <div class="team-content" id="teamContent">
+                        <table class="team-table">
+                            <thead>
+                                <tr>
+                                    <th>Pokemon</th>
+                                    <th>IVs y EVs</th>
+                                    <th>Moveset</th>
+                                    <th>Habilidad e Item</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teamTableBody">
+                                <tr>
+                                    <td><img src="" alt="" class="pokemon-image"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="" alt="" class="pokemon-image"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="" alt="" class="pokemon-image"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="" alt="" class="pokemon-image"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="" alt="" class="pokemon-image"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="" alt="" class="pokemon-image"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </header>
+        </section>
+
+        <!-- Sección 2: Selector de regiones y entrenadores -->
+        <section class="card-section">
+            <div class="selector-card">
+                <div class="regions-container">
+                    <button class="region-btn" data-region="kanto">
+                        <span>Kanto</span>
+                    </button>
+                    <button class="region-btn" data-region="johto">
+                        <span>Johto</span>
+                    </button>
+                    <button class="region-btn" data-region="hoenn">
+                        <span>Hoenn</span>
+                    </button>
+                    <button class="region-btn" data-region="sinnoh">
+                        <span>Sinnoh</span>
+                    </button>
+                    <button class="region-btn" data-region="teselia">
+                        <span>Teselia</span>
+                    </button>
+                </div>
+
+                <div class="trainers-container" id="trainersContainer">
+                    <!-- Los entrenadores se mostrarán aquí dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Información a realizar -->
+        <section class="card-section">
+            <div class="info-card">
+                <!-- Desplegable Inicio del Combate -->
+                <div class="battle-start-dropdown">
+                    <button class="battle-start-toggle" id="battleStartToggle">
+                        <span>Inicio de todos los combates</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <div class="battle-start-content" id="battleStartContent">
+                        <div class="battle-start-text">
+                            <div class="turn-item">
+                                <strong>Turno 1:</strong> Sableye usa pantallas (depende del pokémon que salga usa una o la otra)
+                            </div>
+                            <div class="turn-item">
+                                <strong>Turno 2:</strong> La otra pantalla
+                            </div>
+                            <div class="turn-item">
+                                <strong>Turno 3:</strong> Cambias a Blissey/Chansey
+                            </div>
+                            <div class="turn-item">
+                                <strong>Turno 4:</strong> Trampa rocas
+                            </div>
+                            <div class="turn-item">
+                                <strong>Turno 5:</strong> Teleport
+                            </div>
+                            <div class="turn-note">
+                                <strong>Nota:</strong> Lo ideal es que el Sableye no muera y que la Blissey meta las trampas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección de Pokémons Líderes (se muestra al seleccionar un entrenador) -->
+                <div class="leader-pokemons-section" id="leaderPokemonsSection" style="display: none;">
+                    <h3 class="leader-pokemons-title" id="leaderPokemonsTitle"></h3>
+                    <div class="leader-pokemons-container" id="leaderPokemonsContainer">
+                        <!-- Los botones de pokémon líder se añadirán dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-card">
+            <p>Este proyecto ha sido realizado con base del equipo de <strong>Megabladers</strong> y <strong>Paxpo</strong>, siendo mejorado por <strong>CounterZ</strong> y la página creada por <strong>SirBolas</strong></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
