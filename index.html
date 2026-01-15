@@ -27,12 +27,17 @@
                                     <th>Pokemon</th>
                                     <th>IVs y EVs</th>
                                     <th>Moveset</th>
-                                    <th>Habilidad e Item</th>
+                                    <th>Naturaleza, Habilidad e Item</th>
                                 </tr>
                             </thead>
                             <tbody id="teamTableBody">
                                 <tr>
-                                    <td><img src="img/pokes-team/200px-Sableye.png" alt="Sableye" class="pokemon-image"></td>
+                                    <td>
+                                        <div class="pokemon-image-wrapper">
+                                            <img src="img/pokes-team/200px-Sableye.png" alt="Sableye" class="pokemon-image">
+                                            <img src="img/items/equiped/Refleluz_EP.png" alt="Refleluz" class="item-icon">
+                                        </div>
+                                    </td>
                                     <td>
                                         <table class="stats-table">
                                             <thead>
@@ -43,20 +48,46 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr><td>PS</td><td></td><td></td></tr>
-                                                <tr><td>Atq</td><td></td><td></td></tr>
-                                                <tr><td>Def</td><td></td><td></td></tr>
-                                                <tr><td>AtqSp</td><td></td><td></td></tr>
-                                                <tr><td>DefSp</td><td></td><td></td></tr>
-                                                <tr><td>Vel</td><td></td><td></td></tr>
+                                                <tr><td>PS</td><td class="iv-max">31</td><td class="ev-max">252</td></tr>
+                                                <tr><td>Atq</td><td>-</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>Def</td><td class="iv-max">31</td><td>78</td></tr>
+                                                <tr><td>AtqSp</td><td>-</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>DefSp</td><td class="iv-max">31</td><td>180</td></tr>
+                                                <tr><td>Vel</td><td>-</td><td class="ev-zero">0</td></tr>
                                             </tbody>
                                         </table>
                                     </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <ul class="moveset-list">
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-psychic-box-icon.png" alt="Psíquico" class="type-icon">
+                                                <span>Pantalla de luz</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-psychic-box-icon.png" alt="Psíquico" class="type-icon">
+                                                <span>Reflejo</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-normal-box-icon.png" alt="Normal" class="type-icon">
+                                                <span>Otra vez</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div class="ability-item-info">
+                                            <div><strong>Naturaleza:</strong> Osada</div>
+                                            <div><strong>Habilidad:</strong> Bromista</div>
+                                            <div><strong>Objeto:</strong> Refleuz</div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="img/pokes-team/200px-Blissey.png" alt="Blissey" class="pokemon-image"></td>
+                                    <td>
+                                        <div class="pokemon-image-wrapper">
+                                            <img src="img/pokes-team/200px-Blissey.png" alt="Blissey" class="pokemon-image">
+                                            <img src="img/items/equiped/Banda_aguante_EP.png" alt="Banda aguante" class="item-icon">
+                                        </div>
+                                    </td>
                                     <td>
                                         <table class="stats-table">
                                             <thead>
@@ -67,20 +98,50 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr><td>PS</td><td></td><td></td></tr>
-                                                <tr><td>Atq</td><td></td><td></td></tr>
-                                                <tr><td>Def</td><td></td><td></td></tr>
-                                                <tr><td>AtqSp</td><td></td><td></td></tr>
-                                                <tr><td>DefSp</td><td></td><td></td></tr>
-                                                <tr><td>Vel</td><td></td><td></td></tr>
+                                                <tr><td>PS</td><td class="iv-max">31</td><td class="ev-max">252</td></tr>
+                                                <tr><td>Atq</td><td>-</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>Def</td><td class="iv-max">31</td><td>6</td></tr>
+                                                <tr><td>AtqSp</td><td>-</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>DefSp</td><td class="iv-max">31</td><td class="ev-max">252</td></tr>
+                                                <tr><td>Vel</td><td>25</td><td class="ev-zero">0</td></tr>
                                             </tbody>
                                         </table>
                                     </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <ul class="moveset-list">
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-psychic-box-icon.png" alt="Psíquico" class="type-icon">
+                                                <span>Pantalla de luz</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-rock-box-icon.png" alt="Roca" class="type-icon">
+                                                <span>Trampa rocas</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-fighting-box-icon.png" alt="Lucha" class="type-icon">
+                                                <span>Mov. sismico</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-normal-box-icon.png" alt="Normal" class="type-icon">
+                                                <span>Encanto</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div class="ability-item-info">
+                                            <div><strong>Naturaleza:</strong> Serena</div>
+                                            <div><strong>Habilidad:</strong> Cura natural</div>
+                                            <div><strong>Objeto:</strong> Banda aguante</div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="img/pokes-team/200px-Cresselia.png" alt="Cresselia" class="pokemon-image"></td>
+                                    <td>
+                                        <div class="pokemon-image-wrapper">
+                                            <img src="img/pokes-team/200px-Cresselia.png" alt="Cresselia" class="pokemon-image">
+                                            <img src="img/items/equiped/Restos_EP.png" alt="Restos" class="item-icon">
+                                        </div>
+                                    </td>
                                     <td>
                                         <table class="stats-table">
                                             <thead>
@@ -91,20 +152,50 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr><td>PS</td><td></td><td></td></tr>
-                                                <tr><td>Atq</td><td></td><td></td></tr>
-                                                <tr><td>Def</td><td></td><td></td></tr>
-                                                <tr><td>AtqSp</td><td></td><td></td></tr>
-                                                <tr><td>DefSp</td><td></td><td></td></tr>
-                                                <tr><td>Vel</td><td></td><td></td></tr>
+                                                <tr><td>PS</td><td class="iv-max">31</td><td>216</td></tr>
+                                                <tr><td>Atq</td><td>-</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>Def</td><td class="iv-max">31</td><td>80</td></tr>
+                                                <tr><td>AtqSp</td><td class="iv-max">31</td><td>92</td></tr>
+                                                <tr><td>DefSp</td><td class="iv-max">31</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>Vel</td><td class="iv-max">31</td><td>122</td></tr>
                                             </tbody>
                                         </table>
                                     </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <ul class="moveset-list">
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-bug-box-icon.png" alt="Bicho" class="type-icon">
+                                                <span>Doble rayo</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-psychic-box-icon.png" alt="Psíquico" class="type-icon">
+                                                <span>Poder reserva</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-psychic-box-icon.png" alt="Psíquico" class="type-icon">
+                                                <span>Paz mental</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-electric-box-icon.png" alt="Eléctrico" class="type-icon">
+                                                <span>Rayo</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div class="ability-item-info">
+                                            <div><strong>Naturaleza:</strong> Modesta</div>
+                                            <div><strong>Habilidad:</strong> Levitación</div>
+                                            <div><strong>Objeto:</strong> Restos</div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="img/pokes-team/200px-Scrafty.png" alt="Scrafty" class="pokemon-image"></td>
+                                    <td>
+                                        <div class="pokemon-image-wrapper">
+                                            <img src="img/pokes-team/200px-Scrafty.png" alt="Scrafty" class="pokemon-image">
+                                            <img src="img/items/equiped/Manto_encubierto_EP.png" alt="Manto encubierto" class="item-icon">
+                                        </div>
+                                    </td>
                                     <td>
                                         <table class="stats-table">
                                             <thead>
@@ -115,20 +206,50 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr><td>PS</td><td></td><td></td></tr>
-                                                <tr><td>Atq</td><td></td><td></td></tr>
-                                                <tr><td>Def</td><td></td><td></td></tr>
-                                                <tr><td>AtqSp</td><td></td><td></td></tr>
-                                                <tr><td>DefSp</td><td></td><td></td></tr>
-                                                <tr><td>Vel</td><td></td><td></td></tr>
+                                                <tr><td>PS</td><td class="iv-max">31</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>Atq</td><td class="iv-max">31</td><td class="ev-max">252</td></tr>
+                                                <tr><td>Def</td><td class="iv-max">31</td><td>6</td></tr>
+                                                <tr><td>AtqSp</td><td>-</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>DefSp</td><td class="iv-max">31</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>Vel</td><td class="iv-max">31</td><td class="ev-max">252</td></tr>
                                             </tbody>
                                         </table>
                                     </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <ul class="moveset-list">
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-dark-box-icon.png" alt="Siniestro" class="type-icon">
+                                                <span>Paliza</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-fighting-box-icon.png" alt="Lucha" class="type-icon">
+                                                <span>A bocajarro</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-fighting-box-icon.png" alt="Lucha" class="type-icon">
+                                                <span>Puño drenaje</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-dragon-box-icon.png" alt="Dragón" class="type-icon">
+                                                <span>Danza dragón</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div class="ability-item-info">
+                                            <div><strong>Naturaleza:</strong> Firme</div>
+                                            <div><strong>Habilidad:</strong> Autoestima</div>
+                                            <div><strong>Objeto:</strong> Manto encubierto</div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="img/pokes-team/200px-Serperior.png" alt="Serperior" class="pokemon-image"></td>
+                                    <td>
+                                        <div class="pokemon-image-wrapper">
+                                            <img src="img/pokes-team/200px-Serperior.png" alt="Serperior" class="pokemon-image">
+                                            <img src="img/items/equiped/Lupa_EP.png" alt="Lupa" class="item-icon">
+                                        </div>
+                                    </td>
                                     <td>
                                         <table class="stats-table">
                                             <thead>
@@ -139,20 +260,50 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr><td>PS</td><td></td><td></td></tr>
-                                                <tr><td>Atq</td><td></td><td></td></tr>
-                                                <tr><td>Def</td><td></td><td></td></tr>
-                                                <tr><td>AtqSp</td><td></td><td></td></tr>
-                                                <tr><td>DefSp</td><td></td><td></td></tr>
-                                                <tr><td>Vel</td><td></td><td></td></tr>
+                                                <tr><td>PS</td><td class="iv-max">31</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>Atq</td><td>-</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>Def</td><td class="iv-max">31</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>AtqSp</td><td class="iv-max">31</td><td class="ev-max">252</td></tr>
+                                                <tr><td>DefSp</td><td class="iv-max">31</td><td>6</td></tr>
+                                                <tr><td>Vel</td><td class="iv-max">31</td><td class="ev-max">252</td></tr>
                                             </tbody>
                                         </table>
                                     </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <ul class="moveset-list">
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-grass-box-icon.png" alt="Planta" class="type-icon">
+                                                <span>Llueve hojas</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-dragon-box-icon.png" alt="Dragón" class="type-icon">
+                                                <span>Pulso dragón</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-grass-box-icon.png" alt="Planta" class="type-icon">
+                                                <span>Gigadrenado</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-fire-box-icon.png" alt="Fuego" class="type-icon">
+                                                <span>Poder oculto</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div class="ability-item-info">
+                                            <div><strong>Naturaleza:</strong> Miedosa</div>
+                                            <div><strong>Habilidad:</strong> Respondón</div>
+                                            <div><strong>Objeto:</strong> Lupa</div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="img/pokes-team/200px-Volcarona.png" alt="Volcarona" class="pokemon-image"></td>
+                                    <td>
+                                        <div class="pokemon-image-wrapper">
+                                            <img src="img/pokes-team/200px-Volcarona.png" alt="Volcarona" class="pokemon-image">
+                                            <img src="img/items/equiped/Restos_EP.png" alt="Restos" class="item-icon">
+                                        </div>
+                                    </td>
                                     <td>
                                         <table class="stats-table">
                                             <thead>
@@ -163,17 +314,42 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr><td>PS</td><td></td><td></td></tr>
-                                                <tr><td>Atq</td><td></td><td></td></tr>
-                                                <tr><td>Def</td><td></td><td></td></tr>
-                                                <tr><td>AtqSp</td><td></td><td></td></tr>
-                                                <tr><td>DefSp</td><td></td><td></td></tr>
-                                                <tr><td>Vel</td><td></td><td></td></tr>
+                                                <tr><td>PS</td><td class="iv-max">31</td><td class="ev-max">252</td></tr>
+                                                <tr><td>Atq</td><td>-</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>Def</td><td class="iv-max">31</td><td class="ev-max">252</td></tr>
+                                                <tr><td>AtqSp</td><td class="iv-max">31</td><td class="ev-zero">0</td></tr>
+                                                <tr><td>DefSp</td><td class="iv-max">31</td><td>6</td></tr>
+                                                <tr><td>Vel</td><td>30</td><td class="ev-zero">0</td></tr>
                                             </tbody>
                                         </table>
                                     </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <ul class="moveset-list">
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-fire-box-icon.png" alt="Fuego" class="type-icon">
+                                                <span>Danza llama</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-bug-box-icon.png" alt="Bicho" class="type-icon">
+                                                <span>Danza aleteo</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-bug-box-icon.png" alt="Bicho" class="type-icon">
+                                                <span>Zumbido</span>
+                                            </li>
+                                            <li class="moveset-item">
+                                                <img src="img/poke-types/box/type-psychic-box-icon.png" alt="Psíquico" class="type-icon">
+                                                <span>Psíquico</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div class="ability-item-info">
+                                            <div><strong>Naturaleza:</strong> Osada</div>
+                                            <div><strong>Habilidad:</strong> Cuerpo llama</div>
+                                            <div><strong>Objeto:</strong> Restos</div>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

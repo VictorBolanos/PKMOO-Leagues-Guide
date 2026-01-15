@@ -169,10 +169,31 @@ header h1 {
     border-bottom: none;
 }
 
+.pokemon-image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
 .pokemon-image {
     width: 173px;
     height: 173px;
     object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.item-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    padding: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
@@ -236,6 +257,44 @@ header h1 {
 .stats-table td.iv-max,
 .stats-table td.ev-max {
     color: #44ff44;
+}
+
+.moveset-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.moveset-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.type-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.ability-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.ability-item-info strong {
+    opacity: 1;
+    font-weight: 600;
 }
 
 .info-card {
