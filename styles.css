@@ -170,8 +170,8 @@ header h1 {
 }
 
 .pokemon-image {
-    width: 165px;
-    height: 165px;
+    width: 173px;
+    height: 173px;
     object-fit: contain;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
