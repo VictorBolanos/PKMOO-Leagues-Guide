@@ -519,6 +519,113 @@ header h1 {
     line-height: 1.2;
 }
 
+/* Sección de Pasos del Combate */
+.battle-steps-section {
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.battle-steps-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.battle-steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Tarjetitas de pasos */
+.step-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.step-card.fixed {
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.step-card.expandable {
+    cursor: pointer;
+}
+
+.step-card.expandable:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.step-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-card-trigger {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.step-card-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.step-card.expandable.active .step-card-icon {
+    transform: rotate(180deg);
+}
+
+.step-card-content {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step-card.fixed .step-card-content {
+    display: block;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.step-card.expandable .step-card-content {
+    display: none;
+}
+
+.step-card.expandable.active .step-card-content {
+    display: block;
+}
+
+.step-card-content-item {
+    margin-bottom: 8px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    line-height: 1.5;
+}
+
+.step-card-content-item:last-child {
+    margin-bottom: 0;
+}
+
+.step-card-note {
+    margin-top: 12px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
 .footer-card {
     text-align: center;
     padding: 20px;

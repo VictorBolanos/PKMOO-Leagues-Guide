@@ -784,6 +784,9 @@ function showLeaderPokemons(trainerName, region) {
     // Limpiar contenedor
     leaderContainer.innerHTML = '';
     
+    // Guardar trainer y region para usar en los clicks
+    const currentTrainer = trainerName.toLowerCase().replace(/\s+/g, '');
+    
     // Crear tarjetas para cada pokémon
     pokemons.forEach(pokemon => {
         const pokemonCard = document.createElement('div');
@@ -795,6 +798,16 @@ function showLeaderPokemons(trainerName, region) {
             </div>
         `;
         
+        // Event listener para cargar pasos del combate
+        pokemonCard.addEventListener('click', () => {
+            loadBattleSteps(region, currentTrainer, pokemon.name);
+            // Marcar como activo
+            document.querySelectorAll('.leader-pokemon-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            pokemonCard.classList.add('active');
+        });
+        
         leaderContainer.appendChild(pokemonCard);
     });
     
@@ -804,6 +817,173 @@ function showLeaderPokemons(trainerName, region) {
         leaderSection.style.opacity = '1';
         leaderSection.style.transform = 'translateY(0)';
     }, 10);
+}
+
+// Función para cargar y mostrar los pasos del combate
+function loadBattleSteps(region, trainerName, pokemonName) {
+    console.log('=== INICIO loadBattleSteps ===');
+    console.log('Parámetros recibidos:', { region, trainerName, pokemonName });
+    
+    const stepsSection = document.getElementById('battleStepsSection');
+    const stepsContainer = document.getElementById('battleStepsContainer');
+    
+    if (!stepsSection) {
+        console.error('ERROR: No se encontró battleStepsSection');
+        return;
+    }
+    if (!stepsContainer) {
+        console.error('ERROR: No se encontró battleStepsContainer');
+        return;
+    }
+    
+    console.log('Secciones encontradas correctamente');
+    
+    // Ocultar sección mientras carga
+    stepsSection.style.display = 'none';
+    stepsContainer.innerHTML = '';
+    
+    // Convertir nombres a minúsculas para la ruta
+    const regionLower = region.toLowerCase();
+    const pokemonLower = pokemonName.toLowerCase();
+    const trainerLower = trainerName.toLowerCase();
+    
+    // Construir la ruta del archivo JS
+    const jsPath = `data/${regionLower}/${trainerLower}/${pokemonLower}.js`;
+    
+    console.log('Ruta del script JS:', jsPath);
+    
+    // Eliminar el script anterior si existe
+    const oldScript = document.querySelector(`script[data-battle-steps="${jsPath}"]`);
+    if (oldScript) {
+        oldScript.remove();
+    }
+    
+    // Limpiar datos anteriores
+    window.currentBattleSteps = null;
+    
+    // Crear y cargar el script dinámicamente
+    const script = document.createElement('script');
+    script.src = jsPath;
+    script.setAttribute('data-battle-steps', jsPath);
+    
+    script.onload = () => {
+        console.log('Script cargado correctamente');
+        
+        try {
+            // Verificar que los datos se cargaron
+            if (!window.currentBattleSteps) {
+                console.log('No se encontraron datos en el script para:', jsPath);
+                
+                // Mostrar mensaje de que no hay estrategia
+                const noStrategyCard = document.createElement('div');
+                noStrategyCard.className = 'step-card fixed';
+                noStrategyCard.innerHTML = `
+                    <div class="step-card-content">
+                        <div class="step-card-content-item" style="text-align: center; font-style: italic; opacity: 0.7;">
+                            Aún no hay estrategia para este pokémon
+                        </div>
+                    </div>
+                `;
+                
+                stepsContainer.appendChild(noStrategyCard);
+                
+                // Mostrar sección con animación
+                stepsSection.style.display = 'block';
+                stepsSection.classList.remove('show');
+                stepsSection.offsetHeight;
+                setTimeout(() => {
+                    stepsSection.classList.add('show');
+                }, 10);
+                
+                return;
+            }
+            
+            const data = window.currentBattleSteps;
+            console.log('Datos encontrados correctamente:', data);
+            
+            // Crear tarjetitas para cada paso
+            console.log('Número de pasos a crear:', data.steps.length);
+            data.steps.forEach((step, index) => {
+                console.log(`Creando paso ${index + 1}:`, step);
+                const stepCard = document.createElement('div');
+                stepCard.className = `step-card ${step.type}`;
+                
+                if (step.type === 'fixed') {
+                    // Tarjeta fija
+                    stepCard.innerHTML = `
+                        <div class="step-card-content">
+                            <div class="step-card-content-item">${step.content}</div>
+                        </div>
+                    `;
+                } else if (step.type === 'expandable') {
+                    // Tarjeta desplegable
+                    stepCard.innerHTML = `
+                        <div class="step-card-header">
+                            <div class="step-card-trigger">${step.trigger}</div>
+                            <span class="step-card-icon">▼</span>
+                        </div>
+                        <div class="step-card-content">
+                            ${step.content.map(item => `<div class="step-card-content-item">${item}</div>`).join('')}
+                            ${step.note ? `<div class="step-card-note">${step.note}</div>` : ''}
+                        </div>
+                    `;
+                    
+                    // Event listener para expandir/contraer
+                    stepCard.addEventListener('click', () => {
+                        stepCard.classList.toggle('active');
+                    });
+                }
+                
+                stepsContainer.appendChild(stepCard);
+            });
+            
+            // Mostrar sección con animación
+            stepsSection.style.display = 'block';
+            stepsSection.classList.remove('show');
+            // Forzar reflow
+            stepsSection.offsetHeight;
+            setTimeout(() => {
+                stepsSection.classList.add('show');
+            }, 10);
+            
+        } catch (error) {
+            console.error('=== ERROR procesando datos ===');
+            console.error('Tipo de error:', error.name);
+            console.error('Mensaje de error:', error.message);
+            console.error('Stack:', error.stack);
+            console.error('=== FIN ERROR ===');
+        }
+        console.log('=== FIN loadBattleSteps ===');
+    };
+    
+    script.onerror = () => {
+        console.log('No se encontró estrategia para este pokémon:', jsPath);
+        
+        // Mostrar mensaje de que no hay estrategia
+        const noStrategyCard = document.createElement('div');
+        noStrategyCard.className = 'step-card fixed';
+        noStrategyCard.innerHTML = `
+            <div class="step-card-content">
+                <div class="step-card-content-item" style="text-align: center; font-style: italic; opacity: 0.7;">
+                    Aún no hay estrategia para este pokémon
+                </div>
+            </div>
+        `;
+        
+        stepsContainer.appendChild(noStrategyCard);
+        
+        // Mostrar sección con animación
+        stepsSection.style.display = 'block';
+        stepsSection.classList.remove('show');
+        // Forzar reflow
+        stepsSection.offsetHeight;
+        setTimeout(() => {
+            stepsSection.classList.add('show');
+        }, 10);
+    };
+    
+    // Añadir el script al documento para cargarlo
+    document.head.appendChild(script);
 }
 
 // Event listeners para botones de región
