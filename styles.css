@@ -554,19 +554,17 @@ header h1 {
 }
 
 .step-card.expandable {
-    cursor: pointer;
+    cursor: default;
 }
 
-.step-card.expandable:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.4);
-}
 
 .step-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .step-card-trigger {
@@ -596,12 +594,40 @@ header h1 {
     border-top: none;
 }
 
+/* Regla BASE: TODAS las tarjetas expandables empiezan CERRADAS (ocultar contenido por defecto) */
 .step-card.expandable .step-card-content {
-    display: none;
+    display: none !important;
 }
 
+/* Solo las tarjetas expandables con clase 'active' muestran su contenido */
+/* Esta regla es menos específica, se aplica a todas las tarjetas */
 .step-card.expandable.active .step-card-content {
-    display: block;
+    display: block !important;
+}
+
+/* REGLA ESPECÍFICA PARA TARJETAS ANIDADAS: Las tarjetas anidadas DENTRO del contenido 
+   de otras tarjetas también empiezan cerradas (mayor especificidad que las reglas anteriores) */
+.step-card-content .step-card.expandable .step-card-content {
+    display: none !important;
+}
+
+/* Solo las tarjetas anidadas con clase 'active' muestran su contenido */
+.step-card-content .step-card.expandable.active .step-card-content {
+    display: block !important;
+}
+
+/* Tarjetas anidadas dentro del contenido de otras tarjetas - estilos visuales */
+.step-card-content .step-card.expandable {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.step-card-content .step-card.expandable:first-child {
+    margin-top: 0;
+}
+
+.step-card-content .step-card.expandable:last-child {
+    margin-bottom: 0;
 }
 
 .step-card-content-item {

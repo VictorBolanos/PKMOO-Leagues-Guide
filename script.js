@@ -901,40 +901,85 @@ function loadBattleSteps(region, trainerName, pokemonName) {
             const data = window.currentBattleSteps;
             console.log('Datos encontrados correctamente:', data);
             
-            // Crear tarjetitas para cada paso
-            console.log('Número de pasos a crear:', data.steps.length);
-            data.steps.forEach((step, index) => {
-                console.log(`Creando paso ${index + 1}:`, step);
+            // Función recursiva para renderizar pasos (soporta anidamiento)
+            function renderStep(step, container) {
                 const stepCard = document.createElement('div');
+                // IMPORTANTE: Las tarjetas expandables NO deben tener la clase 'active' inicialmente
                 stepCard.className = `step-card ${step.type}`;
                 
                 if (step.type === 'fixed') {
-                    // Tarjeta fija
+                    // Tarjeta fija - siempre visible
                     stepCard.innerHTML = `
                         <div class="step-card-content">
                             <div class="step-card-content-item">${step.content}</div>
                         </div>
                     `;
                 } else if (step.type === 'expandable') {
-                    // Tarjeta desplegable
-                    stepCard.innerHTML = `
-                        <div class="step-card-header">
-                            <div class="step-card-trigger">${step.trigger}</div>
-                            <span class="step-card-icon">▼</span>
-                        </div>
-                        <div class="step-card-content">
-                            ${step.content.map(item => `<div class="step-card-content-item">${item}</div>`).join('')}
-                            ${step.note ? `<div class="step-card-note">${step.note}</div>` : ''}
-                        </div>
+                    // Tarjeta desplegable - empieza CERRADA (sin clase 'active')
+                    const contentDiv = document.createElement('div');
+                    contentDiv.className = 'step-card-content';
+                    // El CSS ya define: .step-card.expandable .step-card-content { display: none; }
+                    
+                    // Procesar content (puede ser array de strings o array de pasos anidados)
+                    if (step.content && Array.isArray(step.content)) {
+                        step.content.forEach(item => {
+                            if (typeof item === 'string') {
+                                // Es un string simple - se muestra directamente en el contenido
+                                const itemDiv = document.createElement('div');
+                                itemDiv.className = 'step-card-content-item';
+                                itemDiv.textContent = item;
+                                contentDiv.appendChild(itemDiv);
+                            } else if (item && typeof item === 'object' && item.type) {
+                                // Es un paso anidado (expandable o fixed) - se renderiza recursivamente
+                                const nestedContainer = document.createElement('div');
+                                renderStep(item, nestedContainer);
+                                const nestedCard = nestedContainer.firstChild;
+                                if (nestedCard) {
+                                    // La tarjeta anidada se añade al contenido del padre
+                                    // Cuando el padre se abra, se verán los headers de las tarjetas anidadas (cerradas)
+                                    contentDiv.appendChild(nestedCard);
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Añadir nota si existe
+                    if (step.note) {
+                        const noteDiv = document.createElement('div');
+                        noteDiv.className = 'step-card-note';
+                        noteDiv.textContent = step.note;
+                        contentDiv.appendChild(noteDiv);
+                    }
+                    
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'step-card-header';
+                    headerDiv.innerHTML = `
+                        <div class="step-card-trigger">${step.trigger}</div>
+                        <span class="step-card-icon">▼</span>
                     `;
                     
-                    // Event listener para expandir/contraer
-                    stepCard.addEventListener('click', () => {
+                    // Asegurar que el header y el contenido se añaden en el orden correcto
+                    stepCard.appendChild(headerDiv);
+                    stepCard.appendChild(contentDiv);
+                    
+                    // Event listener SOLO en el header para expandir/contraer esta tarjeta
+                    // stopPropagation evita que el evento suba y afecte a tarjetas padre
+                    headerDiv.addEventListener('click', (e) => {
+                        e.stopPropagation();
                         stepCard.classList.toggle('active');
                     });
                 }
                 
-                stepsContainer.appendChild(stepCard);
+                container.appendChild(stepCard);
+            }
+            
+            // Crear tarjetitas para cada paso
+            console.log('Número de pasos a crear:', data.steps.length);
+            data.steps.forEach((step, index) => {
+                console.log(`Creando paso ${index + 1}:`, step);
+                const tempContainer = document.createElement('div');
+                renderStep(step, tempContainer);
+                stepsContainer.appendChild(tempContainer.firstChild);
             });
             
             // Mostrar sección con animación
